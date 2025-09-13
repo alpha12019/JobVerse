@@ -5,6 +5,9 @@ import { useUser } from "@clerk/clerk-react";
 const ProtectedRoute = ({ children }) => {
   const { isSignedIn, isLoaded, user } = useUser();
   const { pathname } = useLocation();
+const ProtectedRoute = ({ children }) => {
+  const { isSignedIn, isLoaded, user } = useUser();
+  const { pathname } = useLocation();
 
   if (isLoaded && !isSignedIn && isSignedIn !== undefined) {
     return <Navigate to="/?sign-in=true" />;
@@ -19,5 +22,4 @@ const ProtectedRoute = ({ children }) => {
 
   return children;
 };
-
 export default ProtectedRoute;
